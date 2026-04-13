@@ -1,6 +1,5 @@
 import express from "express"
 import mongoose from "mongoose"
-import StudentRouter from "./routers/StudentRouter.js" 
 import userRouter from "./routers/userRouter.js"    
 import dns from "node:dns";
 import productRouter from "./routers/productRouter.js";
@@ -30,7 +29,7 @@ app.use(
 
     }
 )
-app.use("/students",StudentRouter)
+
 app.use("/users",userRouter)
 app.use("/products",productRouter)
 
