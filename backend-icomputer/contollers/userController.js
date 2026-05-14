@@ -1,7 +1,6 @@
 import User from "../models/user.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import products from "../contollers/productController.js"
 
 export async function createUser(req, res){
 

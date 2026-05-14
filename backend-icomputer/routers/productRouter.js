@@ -1,5 +1,5 @@
 import express from "express"
-import { createProduct, getAllProducts } from "../controllers/productController.js"
+import { createProduct, getAllProducts } from "../contollers/productController.js"
 import { deleteProduct, getProductbyID } from "../contollers/productController.js";
 import { updateProduct } from "../contollers/productController.js"
 

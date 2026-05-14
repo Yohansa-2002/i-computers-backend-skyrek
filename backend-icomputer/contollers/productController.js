@@ -1,5 +1,5 @@
 import Product from "../models/product.js"
-import isAdmin from "../contollers/userController.js"
+import isAdmin from "./userController.js"
 
 export async function createProduct(req, res){  //create(post)
 
@@ -7,6 +7,7 @@ export async function createProduct(req, res){  //create(post)
         res.status(403).json({
             message : "Access denied. Admin only."
         })
+        return
     }
 
     try {
@@ -98,7 +99,7 @@ export async function deleteProduct(req, res){ //delete
     }
 }
 
-export async function updateone(req, res){ //put
+export async function updateProduct(req, res){ //put
     if(!isAdmin(req)){
         res.status(403).json({
             message: "Access denied. Admins only.",

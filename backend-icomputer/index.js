@@ -8,15 +8,17 @@ dns.setServers(["1.1.1.1","8.8.8.8"]);
 
 const app = express()
 
-const mongodbURI = "mongodb+srv://admin:1234@cluster0.kk4wvgj.mongodb.net/?appName=Cluster0"
+const mongodbURI = process.env.MONGODB_URI || process.env.MONGO_URI || "mongodb+srv://admin:admin123@cluster0.kk4wvgj.mongodb.net/?appName=Cluster0"
 
-
-
-mongoose.connect(mongodbURI).then(
-    ()=>{
+mongoose.connect(mongodbURI)
+    .then(() => {
         console.log("Connected to MongoDB");
-    }
-)
+    })
+    .catch((err) => {
+        console.error("MongoDB connection failed:", err.message || err);
+        console.error("Please verify your Atlas URI credentials in MONGODB_URI or MONGO_URI.");
+        process.exit(1);
+    });
 
 app.use(express.json())
 
